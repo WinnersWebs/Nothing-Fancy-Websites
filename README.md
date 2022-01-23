@@ -1,1 +1,1 @@
-Vanilla/Frameworkless HTML, CSS and JS
+Vanilla/Frameworkless HTML, CSS and JS — minimalistic, nothing fancy
