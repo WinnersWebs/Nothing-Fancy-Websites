@@ -1,5 +1,5 @@
 const h = document.querySelector('header');
-const bn = document.getElementById('bn');
+// const bn = document.getElementById('bn');
 var n_ = document.querySelector('nav.pt');
 function wos() {
     cn();
@@ -19,8 +19,8 @@ function cn() {
     window.removeEventListener('scroll', wos, true);
 }
 const m_ = document.querySelector('main');
-for (i = 0; i < m_.getElementsByTagName('img').length; i++) {
-    if (m_.getElementsByTagName('img')[i].src.substr(-4) !== '.svg') {
+for (let i = 0; i < m_.getElementsByTagName('img').length; i++) {
+    if (m_.getElementsByTagName('img')[i].src.replace(0,-4) !== '.svg') {
         m_.getElementsByTagName('img')[i].addEventListener('click', function() {
             dm(this);
         });
@@ -36,23 +36,21 @@ function wokd(nt) {
 const mg = document.getElementById('mg');
 const md = document.getElementById('md');
 const mx = document.getElementById('mx');
-mx.addEventListener('click', mxoc, true);
-function mxoc() {
-    cm();
-}
+mx.addEventListener('click', cm, true);
 const ic = document.getElementsByClassName('ic');
-for (i = 0; i < ic.length; i++) {
+for (let i = 0; i < ic.length; i++) {
     ic[i].addEventListener('click', function() {
         dm(this);
     });
 }
 const iis = document.getElementsByClassName('iis');
-for (i = 0; i < iis.length; i++) {
+for (let i = 0; i < iis.length; i++) {
     iis[i].addEventListener('click', function() {
         dm(this);
     });
 }
 const mnol = document.getElementsByClassName('mnol')[0];
+var animateImgsModalIntervalId;
 function dm(n) {
     let mc,mi;
     dmp.sX = window.pageXOffset;
@@ -79,7 +77,34 @@ function dm(n) {
         dmp.oce = n;
         break;
     case n.classList.contains('hi') || n.classList.contains('hil') || n.classList.contains('vi') || n.classList.contains('vil') || n.classList.contains('si'):
-        mg.setAttribute('src', n.src);
+        if(n.classList.contains('animatedImg')){
+            var spriteSheetUrl=n.getAttribute('data-spritesheet');
+            var timings=n.getAttribute('data-timings').split(' ').map(function(a){return a.trim()}).map(function(a){return parseInt(a,10)});
+            var width=parseInt(n.getAttribute('data-width'),10);
+            var height=parseInt(n.getAttribute('data-height'),10);
+            var xCount=Math.ceil(Math.sqrt(timings.length));
+            var yCount=Math.floor(Math.sqrt(timings.length));
+            //if(width>=height){mg.style.width=width+'px';}
+            //else{mg.style.width=width/height*height+'px';}
+            //mg.style.maxWidth=width+'px';
+            var mdWidth=window.getComputedStyle().width.slice(0,-2);
+            var mdHeight=window.getComputedStyle().height.slice(0,-2);
+            mg.src=n.src;
+            mg.style.backgroundImage="url('"+spriteSheetUrl+"')";
+            mg.style.backgroundSize = (xCount * 100) + "% " + (yCount * 100) + "%";
+            var animatedImg={
+                width: width,
+                height: height,
+                count: timings.length,
+                timings: timings,
+                lastUpdated: performance.now(),
+                currentImg: 0,
+                element: n
+            };
+            animateImgsModalIntervalId=setInterval(function(){updateAnimatedImgsModal(n,animatedImg);},17);
+            dmp.mga=true;
+        }
+        else{mg.setAttribute('src', n.src);}
         mg.style.display = 'inline-block';
         m.style.display = 'flex';
         dmp.mg = true;
@@ -95,7 +120,6 @@ function dm(n) {
                 m.style.transition = '.75s opacity';
                 m.ontransitionend = null;
             }
-            ;
         }, 750);
         dmp.id = "mnol";
         break;
@@ -115,8 +139,9 @@ function cm() {
         break;
     case 'mg' in dmp:
         m.style.display = 'none';
-        mg.style.display = 'none';
         mg.removeAttribute('src');
+        mg.removeAttribute('style');
+        if(dmp.mga===true){clearInterval(animateImgsModalIntervalId);}
         break;
     case 'mnol' in dmp:
         m.style.opacity = '0';
@@ -130,12 +155,12 @@ function cm() {
     }
     window.removeEventListener('keydown', wokd, true);
     dmp = {};
-    x = null;
+    // x = null;
 }
 const io = document.querySelectorAll('[data-io]');
 function rio() {
     if (ww <= 425 && p === false && lf === false) {
-        for (i = 0; i < io.length; i++) {
+        for (let i = 0; i < io.length; i++) {
             if (io[i].dataset.io === 'if' || io[i].dataset.io === 'is') {
                 io[i].nextElementSibling.insertBefore(io[i], io[i].nextElementSibling.firstElementChild);
             } else if (io[i].dataset.io === 'o') {
@@ -143,7 +168,7 @@ function rio() {
             }
         }
     } else if (ww > 425 && ww <= 768 && t === false && d === true) {
-        for (i = 0; i < io.length; i++) {
+        for (let i = 0; i < io.length; i++) {
             if (io[i].dataset.io === 'if' || io[i].dataset.io === 'is') {
                 io[i].nextElementSibling.insertBefore(io[i], io[i].nextElementSibling.firstElementChild);
             } else if (io[i].dataset.io === 'o') {
@@ -151,7 +176,7 @@ function rio() {
             }
         }
     } else if (ww > 768 && d === false) {
-        for (i = 0; i < io.length; i++) {
+        for (let i = 0; i < io.length; i++) {
             if (io[i].dataset.io === 'o') {
                 io[i].parentNode.querySelector('[data-io="d"]').appendChild(io[i]);
             } else if (io[i].dataset.io === 'if') {
@@ -162,6 +187,7 @@ function rio() {
         }
     }
 }
+var shli;
 if (document.getElementById('sh')){shli=document.getElementById('sh').getElementsByTagName('li');}
 function rsh() {
     if (ww <= 425 && p === false) {
@@ -184,19 +210,18 @@ function rsh() {
 }
 const cf = document.querySelectorAll('[data-c]');
 setInterval(function() {
-    for (i = 0; i < cf.length; i++) {
+    for (let i = 0; i < cf.length; i++) {
         let c = cf[i].dataset.c;
         if (cf[i].style.color === c) {
             cf[i].style.color = '';
         } else {
-            for (i = 0; i < cf.length; i++) {
+            for (let i = 0; i < cf.length; i++) {
                 cf[i].style.color = c;
             }
         }
     }
 }, 1500);
-var ww, d = true;
-var lf = p = t = false;
+var ww;var d = true;var lf=false;var p=false;var t=false;
 function r() {
     ww = window.innerWidth;
     if (ww <= 425 && p === false) {
@@ -229,8 +254,93 @@ function r() {
         lf = true;
     }
 }
+///animationImgs begins
+self.requestAnimationFrame=(function(){
+    return (
+        self.requestAnimationFrame ||
+        self.webkitRequestAnimationFrame ||
+        self.mozRequestAnimationFrame ||
+        self.msRequestAnimationFrame ||
+        self.oRequestAnimationFrame ||
+        (function(callback){
+            setTimeout(callback,1000/60);
+        })
+    );
+})();
+
+var animatedImgs=[];
+function createAnimatedImage(element){
+    var spriteSheetUrl=element.getAttribute('data-spritesheet');
+    var timings=element.getAttribute('data-timings').split(' ').map(function(a){return a.trim()}).map(function(a){return parseInt(a,10)});
+    var width=parseInt(element.getAttribute('data-width'),10);
+    var height=parseInt(element.getAttribute('data-height'),10);
+    var xCount=Math.ceil(Math.sqrt(timings.length));
+    var yCount=Math.floor(Math.sqrt(timings.length));
+    element.width=width;
+    element.height=height;
+    element.style.backgroundImage="url('"+spriteSheetUrl+"')";
+    element.style.backgroundSize = (xCount * 100) + "% " + (yCount * 100) + "%";
+    var animatedImg={
+        width: width,
+        height: height,
+        count: timings.length,
+        timings: timings,
+        lastUpdated: performance.now(),
+        currentImg: 0,
+        element: element
+    };
+    animatedImgs.push(animatedImg);
+}
+function updateAnimatedImgs(){
+    for(let i=0;i<animatedImgs.length;i++){
+        var xCount=Math.ceil(Math.sqrt(animatedImgs[i].count));
+        var inverseAspectRatio = animatedImgs[i].height / animatedImgs[i].width;
+        animatedImgs[i].element.style.height = parseFloat(window.getComputedStyle(animatedImgs[i].element).width.slice(0,-2)) * inverseAspectRatio + 'px';
+        var curTime = performance.now();
+        if (curTime>animatedImgs[i].lastUpdated+animatedImgs[i].timings[animatedImgs[i].currentImg]){
+            animatedImgs[i].currentImg=(animatedImgs[i].currentImg+1)%animatedImgs[i].count;
+            var curX=animatedImgs[i].currentImg%xCount;
+            var curY = Math.floor(animatedImgs[i].currentImg / xCount);
+            curX *= 100;
+            curY *= 100;
+            animatedImgs[i].element.style.backgroundPosition = curX + "% " + curY + "%";
+            animatedImgs[i].lastUpdated = curTime;
+        }
+    }
+}
+function updateAnimatedImgsModal(n,animatedImg){
+    var xCount=Math.ceil(Math.sqrt(animatedImg.count));
+    var inverseAspectRatio = animatedImg.height / animatedImg.width;
+    //mg.style.height = parseFloat(window.getComputedStyle(mg).width.slice(0,-2)) * inverseAspectRatio + 'px';
+    var curTime = performance.now();
+    if (curTime>animatedImg.lastUpdated+animatedImg.timings[animatedImg.currentImg]){
+        animatedImg.currentImg=(animatedImg.currentImg+1)%animatedImg.count;
+        var curX=animatedImg.currentImg%xCount;
+        var curY = Math.floor(animatedImg.currentImg / xCount);
+        curX *= 100;
+        curY *= 100;
+        mg.style.backgroundPosition = curX + "% " + curY + "%";
+        animatedImg.lastUpdated = curTime;
+    }
+}
+function addAnimatedImgs() {
+    var imgs = document.getElementsByClassName('animatedImg');
+    for (let i = 0; i < imgs.length; i++) {
+        createAnimatedImage(imgs[i]);
+    }
+}
+///animateImgs ends
 ['DOMContentLoaded', 'load', 'resize'].forEach(function(nt) {
-    window.addEventListener(nt, function() {
+    window.addEventListener(nt, function() {//make sure this never returns a value and never uses preventDefault, otherwise won't trigger second load (calling requestAnimationFrame and addAnimatedImgs below)
         r();
-    }, true);
+    }); //removed true arg
+});
+
+function frame(){
+    updateAnimatedImgs();
+    window.requestAnimationFrame(frame);
+}
+window.addEventListener('load', function() {
+    window.requestAnimationFrame(frame);
+    addAnimatedImgs();
 });
