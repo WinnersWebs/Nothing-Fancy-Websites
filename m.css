@@ -53,7 +53,8 @@ footer > a{margin:auto;}
 .qs{text-align:center;font-size:1.5rem;margin:.75rem auto;font-style:italic;}
 .qs.tc{font-size:1.75rem;margin:.75rem auto 2.25rem;}
 .s{width:100%;margin:0;}
-.s span,.s em{font-size:2rem;margin:1rem auto;width:90%;text-align:center;}
+.s span{font-size:2rem;margin:1rem auto;width:90%;text-align:center;}
+.s em{font-size:2rem;margin:1rem auto;width:90%;text-align:center;}
 .sr{margin:auto;font-size:2rem;text-align:center;}
 .niq{font-style:normal;}
 .hul{font-weight:bold;}
@@ -103,7 +104,6 @@ footer > a{margin:auto;}
 .nw{white-space:nowrap;}
 .b{padding:0 6px;}
 .b #m{padding:9px;}
-.b #mg{max-width:100%;max-height:100%;}
 .b .mii{width:100%;height:100%;}
 .iis{cursor:pointer;}
 .ii{margin:0;}
@@ -140,7 +140,7 @@ footer > a{margin:auto;}
 #ic3d #ica{position:relative;right:5px;}
 #ic3d #ics{position:relative;right:5px;}
 #lhc2{padding-bottom:0.88rem;}
-#lhc2 #l{padding-top:0.88rem;}
+#lhc2 #l{padding-top:0.88rem;width:80%;}
 #lhc2 #icd{flex-direction:row;}
 #lhc2 #icd button:first-child{margin-right:8px;}
 #lhc2 #icd button:nth-child(2){margin-left:8px;}
@@ -214,6 +214,7 @@ footer > a{margin:auto;}
 #f2 img{width:96px;}
 #f1 img{width:96px;}
 #f0 #WW{margin:0 auto 0;}
+#LinkedInIcon{position:relative;left:4px;}
 #WW{font-size:1rem;padding:0 5%;width:100%;text-align:center;margin:3rem auto 0;}
 #m{display:none;flex-direction:column;width:100%;left:0;top:0;height:100%;position:fixed;z-index:1;background-color:#fff;}
 #m img{cursor:auto;}
@@ -457,6 +458,8 @@ form label{font-size:1.5rem;}
     .c4{width:99%;}
     .sr{font-size:1.5rem;}
     .b896w70{width:70%;}
+    #me.veryShortEmailModalDiv a {font-size:2.25rem;}
+    #me.veryShortEmailModalDiv .ioi{width:34px;height:34px;}
     #lvc3 #hd{width:70%;}
     #lhn3c3 .icd{font-size:1.25rem;margin-top:30px;}
     #lhn3c3 .icd:first-child{order:1;}
@@ -478,6 +481,7 @@ form label{font-size:1.5rem;}
     #f3pe{padding-top:0;margin-top:-25px;}
     #f3pe #fp{width:50%;text-align:center;}
     #f3pe #fe{width:50%;text-align:center;}
+    #LinkedInIcon{left:8px;}
     #me *{font-size:1.75rem;}
     #me .ioi{width:32px;height:32px;}
     #ma img{width:60%;}
@@ -537,13 +541,15 @@ form label{font-size:1.5rem;}
     .b768w70{width:70%;}
     .b768w80{width:80%;}
     .b768w90{width:90%;}
-    .h2Em{font-size:1.5rem;}
+    .b768mt{margin-top:10px;}
+    .h2Em{font-size:1.5rem;width:90%;}
     .q{font-size:1.25rem;margin:.75rem auto;}
     .ql{font-size:1rem;margin:.75rem auto;}
     .qs{font-size:1.25rem;margin:.75rem auto;}
     .qs.tc{font-size:1.25rem;}
     .s{width:100%;}
     .s span{font-size:1.38rem;margin:.75rem auto;}
+    .s em{font-size:1.5rem;}
     .pt{display:flex;}
     .d{display:none;}
     .o1{order:1;}
@@ -651,6 +657,7 @@ form label{font-size:1.5rem;}
     main h1{font-size:1.75rem;}
     h1{font-size:2.25rem;}
     p{font-size:1.13rem;margin:.57rem auto;}
+    li{font-size:1.13rem;}
     .q{font-size:1.13rem;margin:.57rem auto;}
     .s span{font-size:1.25rem;}
     .b576w90{width:90%;}
@@ -702,6 +709,8 @@ form label{font-size:1.5rem;}
     td{font-size:1rem;}
     .b501dn{display:none;}
     .b501dt{display:table;}
+    .b501w25{width:25%;}
+    .b501w30{width:30%;}
     .b501w45{width:45%;}
     .b501w50{width:50%;}
     .b501w55{width:55%;}
@@ -709,6 +718,7 @@ form label{font-size:1.5rem;}
     .b501w65{width:65%;}
     .b501w70{width:70%;}
     .b501w80{width:80%;}
+    .b501w90{width:90%;}
     .b501w100{width:100%;}
     .b501o1{order:1;}
     .b501o2{order:2;}
@@ -733,6 +743,9 @@ form label{font-size:1.5rem;}
     #bn img{width:21px;height:21px;margin-top:0;margin-right:2px;}
     #fmd .fdd{width:98%;}
     #mp *{font-size:1.75rem;}
+    #mp .ioi{width:30px;height:30px;}
+    #me.veryShortEmailModalDiv a{font-size:1.5rem;}
+    #me.veryShortEmailModalDiv .ioi{width:26px;height:26px;}
     #msms span{font-size:1rem;}
     #ms img{width:90%;}
     #msms.hil{width:90%;}
@@ -743,7 +756,6 @@ form label{font-size:1.5rem;}
 }
 @media screen and (max-width:426px){
     h2{font-size:1.75rem;}
-    p{font-size:1rem;margin:.5rem auto;}
     button{font-size:1rem;padding:10px 15px;}
     .icd{font-size:1.13rem;}
     .s span{font-size:1.13rem;margin:.57rem auto;}
@@ -751,20 +763,21 @@ form label{font-size:1.5rem;}
     .ql{font-size:.9rem;margin:.5rem auto;}
     .qs{font-size:1rem;margin:.5rem auto;}
     .ioi{width:18px;height:18px;}
-    .p25{width:25%;}
-    .p30{width:30%;}
-    .p35{width:35%;}
-    .p40{width:40%;}
-    .p45{width:45%;}
-    .p50{width:50%;}
-    .p55{width:55%;}
-    .p60{width:60%;}
-    .p70{width:70%;}
-    .p80{width:80%;}
-    .p90{width:90%;}
+    .b426w25{width:25%;}
+    .b426w30{width:30%;}
+    .b426w35{width:35%;}
+    .b426w40{width:40%;}
+    .b426w45{width:45%;}
+    .b426w50{width:50%;}
+    .b426w55{width:55%;}
+    .b426w60{width:60%;}
+    .b426w70{width:70%;}
+    .b426w80{width:80%;}
+    .b426w90{width:90%;}
     .c4{width:90%;}
     .sr{font-size:1.25rem;}
     .b426p2r{padding:2rem;}
+    .h2Em{font-size:1.4rem;}
     #icp img{width:28px;height:28px;}
     #ice img{width:28px;height:28px;}
     #ich img{width:28px;height:28px;}
@@ -779,7 +792,7 @@ form label{font-size:1.5rem;}
     #ssm{width:50%;}
     #sh{width:100%;}
     #f1 img{width:64px;height:64px;}
-    #f3pe img{width:64px}
+    #f3pe img{width:64px;}
     #f3pe #fp{width:100%;margin:2rem auto 1rem;}
     #f3pe #fe{width:100%;margin:1rem auto 2rem;}
     #f3pe #WW{margin-top:2rem;}
@@ -802,6 +815,8 @@ form label{font-size:1.5rem;}
 @media screen and (max-width:376px){
     nav.pt a{font-size:1.25rem;}
     main h1{margin:1rem auto;font-size:1.63rem;padding-left:.5rem;padding-right:.5rem;}
+    p{font-size:1rem;margin:.5rem auto;}
+    li{font-size:1rem;}
     table{margin-bottom:24px;}
     th{font-size:1.13rem;}
     th .i{width:22px;height:22px;}
@@ -814,6 +829,7 @@ form label{font-size:1.5rem;}
     .c4{width:100%;margin-left:3px;margin-right:3px;}
     #bn{padding:10px 13px;font-size:1rem;}
     #bn img{width:18px;height:18px;}
+    #lhc2 button.ic{padding:7px 10px;font-size:1rem;}
     #lhn3c3 .ic span{font-size:1.13rem;}
     #lhn3c3 #icp img{width:24px;height:24px;}
     #lhn3c3 #ice img{width:24px;height:24px;}
@@ -841,10 +857,9 @@ form label{font-size:1.5rem;}
     #hul{margin-left:10px;}
     #ssm{width:80%;}
     #fmd .fdd{margin-bottom:15px;}
-    #f3pe #fp{margin-top:2.75rem;}
-    #f3pe #fe{margin-top:2.75rem;}
     #f3 img{width:36px;height:36px;}
     #f4 img{width:36px;height:auto;}
+    #f3pe img{width:56px;}
     #mp *{font-size:1.5rem;}
     #me *{font-size:1rem;}
     #me .ioi{width:22px;height:22px;}
@@ -888,10 +903,13 @@ form label{font-size:1.5rem;}
     #ssm{width:90%;}
     #WW{margin:2.5rem auto 0;}
     #f4 img{width:32px;height:auto;}
+    #f3pe img{width:48px;}
     #mg{max-width:98%;max-height:98%;}
     #mp *{font-size:1.38rem;}
     #mp .ioi{width:28px;height:28px;}
     #me .ioi{width:22px;height:22px;}
+    #me.veryShortEmailModalDiv a{font-size:1.25rem;}
+    #me.veryShortEmailModalDiv .ioi{width:22px;height:22px;}
     #mh *{font-size:1.5rem;}
     #ma *{font-size:1.5rem;}
     #ma .ioi{width:28px;height:28px;}
